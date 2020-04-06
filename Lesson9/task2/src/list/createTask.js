@@ -6,10 +6,8 @@ export const onCreateTask = () => {
     const taskTitleInputElem = document.querySelector('.task-input');
 
     const text = taskTitleInputElem.value;
-
-    if (!text) {
-        return;
-    }
+    if (!text) return;
+    
     taskTitleInputElem.value = '';
 
 

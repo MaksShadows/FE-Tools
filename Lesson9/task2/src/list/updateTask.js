@@ -4,13 +4,11 @@ import { updateTask, getTasksList } from './tasksGateway'
 
 export const onToggleTask = e => {
     const isCheckbox = e.target.classList('list__item-checkbox');
-
-    if (!isCheckbox) {
-        return;
-    }
+    if (!isCheckbox) return;
 
     const taskId = e.target.dataset.id;
-    const tasksList = getItem('tasksList');
+    const tasksList = getItem('tasksList')
+    ;
     const { text, createDate } = tasksList
         .find(task => task.id === taskId);
     const done = e.target.checked;

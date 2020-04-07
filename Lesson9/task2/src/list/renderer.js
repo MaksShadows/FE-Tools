@@ -8,8 +8,8 @@ function createCheckbox({ done, id }) {
   checkboxElem.setAttribute('type', 'checkbox');
   checkboxElem.setAttribute('data-id', id);
   checkboxElem.checked = done;
-  checkboxElem.classList.add('list__item-checkbox')
-    return checkboxElem;
+  checkboxElem.classList.add('list__item-checkbox');
+  return checkboxElem;
 }
 
 function createListItem({ text, done, id }) {
@@ -25,23 +25,23 @@ function createListItem({ text, done, id }) {
 
   const deleteBtnElem = document.createElem('button');
   deleteBtnElem.classList.add('delete-btn');
-  
+
   listItemElem.append(checkboxElem, text, deleteBtnElem);
 
   return listItemElem;
-};
+}
 
 function renderTasks() {
   const tasksList = getItem('tasksList') || [];
 
   listElem.innerHTML = '';
   const tasksElems = tasksList
-      .sort((a, b) => new Date(b.createDate) - new Date(a.createDate))
-      .sort((a, b) => new Date(b.finishDate) - new Date(a.finishDate))
-      .sort((a, b) => a.done - b.done)
-      .map(createListItem);
+    .sort((a, b) => new Date(b.createDate) - new Date(a.createDate))
+    .sort((a, b) => new Date(b.finishDate) - new Date(a.finishDate))
+    .sort((a, b) => a.done - b.done)
+    .map(createListItem);
 
   listElem.append(...tasksElems);
-};
+}
 
 export { renderTasks };
